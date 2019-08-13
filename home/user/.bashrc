@@ -99,7 +99,7 @@ fi
 #fi
 test -d ~/.nvm || git clone https://github.com/creationix/nvm ~/.nvm
 source ~/.nvm/nvm.sh
-
+nvm install lts/dubnium
 
 # boyub対応
 export VTE_CJK_WIDTH=1
