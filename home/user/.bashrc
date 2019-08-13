@@ -97,10 +97,10 @@ fi
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 #    . /etc/bash_completion
 #fi
+test -d ~/.nvm || git clone https://github.com/creationix/nvm ~/.nvm
 source ~/.nvm/nvm.sh
 
 
-# びょーぶ
+# boyub対応
 export VTE_CJK_WIDTH=1
-byobu
 
