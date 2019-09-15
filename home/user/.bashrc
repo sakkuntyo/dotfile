@@ -101,6 +101,12 @@ test -d ~/.nvm || git clone https://github.com/creationix/nvm ~/.nvm
 source ~/.nvm/nvm.sh
 node -v &> /dev/null || nvm install lts/dubnium
 
+# golang
+go || {
+  apt update
+  apt install golang -y
+}
+
 # boyub対応
 export VTE_CJK_WIDTH=1
 
