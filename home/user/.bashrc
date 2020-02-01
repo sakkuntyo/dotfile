@@ -1,3 +1,7 @@
+# for bashrc load
+defaultDir="`pwd`"
+cd ~
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -97,16 +101,29 @@ fi
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 #    . /etc/bash_completion
 #fi
+
+# nodejs install
 test -d ~/.nvm || git clone https://github.com/creationix/nvm ~/.nvm
 source ~/.nvm/nvm.sh
 node -v &> /dev/null || nvm install lts/dubnium
 
-# golang
-go || {
+export GOENV_ROOT="${HOME}/.goenv"
+export PATH="${GOENV_ROOT}/bin:${PATH}"
+eval "$(goenv init -)"
+
+# golang install
+go version &> /dev/null || {
   apt update
   apt install golang -y
+  go get -u github.com/go-delve/delve/cmd/dlv
 }
+PATH="${PATH}:${GOPATH}/bin"
 
 # boyub対応
 export VTE_CJK_WIDTH=1
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# for bashrc load
+cd "${defaultDir}"
